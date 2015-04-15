@@ -3,6 +3,7 @@
 $(document).ready(init);
 
 var compare1, stopTimer;
+var pairsToGameOver = 10;
 
 function init(){
   $('#start').click(startGame);
@@ -16,12 +17,13 @@ function startGame(){
 
 function startTimer(){
   $('#timer').text(60);
-  var stopTimer = setInterval(reduceTimer, 1000);
+  stopTimer = setInterval(reduceTimer, 1000);
 }
 
 function reduceTimer(){
   $('#timer').text(parseInt($('#timer').text()) - 1);
-  if($('#timer').text() === 0){
+  if($('#timer').text() <= 0){
+    console.log('end of time');
     clearInterval(stopTimer);
   }
 }
@@ -32,6 +34,20 @@ function setupGame(){
   for (var i = 1; i <= 5; i++){
     var $tr = $('<tr>');
     for (var j = 1; j<=4; j++){
+      var $td = $('<td>');
+      //var cardNum = shuffledCards.pop();
+      var cardClass = 'pair' + cardNum;
+      //$td.attr('data-n', cardNum);
+      $td.addClass('card').addClass(cardClass);
+      $tr.append($td);
+    }
+    $('#belowcardsholder').append($tr);
+
+  }
+
+  for ( i = 1; i <= 5; i++){
+    var $tr = $('<tr>');
+    for ( j = 1; j<=4; j++){
       var $td = $('<td>');
       var cardNum = shuffledCards.pop();
       var cardClass = 'pair' + cardNum;
@@ -64,16 +80,19 @@ function flipCard(){
   if($('.selected').length === 1){
     $(this).addClass('selected');
       $('.selected').addClass('animated flipOutY');
-      var compare2 = $(this).data('n');
-      if(compare1 === compare2){
-        compare1.removeClass('selected animated flipOutY');
-        compare2.removeClass('selected animated flipOutY');
+      //var compare2 = $(this);
+      //if(compare1.data('n') === compare2.data('n')){
+        //pairsToGameOver--;
+      if(){  
+        compare1.removeClass('selected animate flipOutY');
+        compare2.removeClass('selected animate flipOutY');
+
       }else{
-        setTimeout(dontMatch, 1000);
+        setTimeout(dontMatch, 750);
       }
   } else{
     $(this).addClass('selected');
-      compare1 = $(this).data('n');
+    //  compare1 = $(this);
   }
 
   //if($('.flipOutY').data('n') === )

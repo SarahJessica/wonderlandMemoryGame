@@ -4,10 +4,24 @@ body{
 table, tr, td{
   border: 2px black solid;
 }
-.card{
+#cardsholder .card{
   background-color: black;
   width: 50px;
   height: 70px;
   margin: 5px;
-
+}
+#belowcardsholder .card{
+  background-color: pink;
+  width: 50px;
+  height: 70px;
+  margin: 5px;
+}
+#cardsholder{
+  position: absolute;
+  z-index: 10;
+}
+#belowcardsholder{
+  position: absolute;
+  z-index: 1;
+  background-color: yellow;
 }
