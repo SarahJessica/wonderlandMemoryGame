@@ -6,9 +6,16 @@ html
     link(rel='stylesheet', href='/vendor/font-awesome/css/font-awesome.min.css')
     link(rel='stylesheet', href=isProd ? '/index.min.css' : '/index.css')
     link(rel='shortcut icon', href='/favicon.ico')
+    link(rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.6/animate.min.css")
   body
-    img#apollo(src='/assets/apollo.jpg')
-    h1#title Apollo
-
+    h1 Alice in Wonderland
+    h2 Memory Game
+    
+    #container
+      #controls
+        button#start Start
+        p#timer 60
+      #cardsholder
+    script(src='/vendor/jquery/dist/jquery.min.js')
     script(src='/vendor/lodash/lodash.min.js')
     script(src=isProd ? '/index.min.js' : '/index.js')
