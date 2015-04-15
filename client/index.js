@@ -16,7 +16,7 @@ function startGame(){
 }
 
 function startTimer(){
-  $('#timer').text(10);
+  $('#timer').text(60);
   stopTimer = setInterval(reduceTimer, 1000);
 }
 
@@ -24,8 +24,8 @@ function reduceTimer(){
   $('#timer').text(parseInt($('#timer').text()) - 1);
   if($('#timer').text() <= 0){
     $('#controls').removeClass('animated shake infinite');
-    $('#belowcardsholder').addClass('animated zoomOutDown');
-    $('#cardsholder').addClass('animated zoomOutDown');
+    $('#belowcardsholder').addClass('animated bounceOut');
+    $('#cardsholder').addClass('animated bounceOut');
     clearInterval(stopTimer);
     $('#start').show();
   }
@@ -39,27 +39,25 @@ function setupGame(){
   var shuffledCards = randomizeArray();
   for (var i = 1; i <= 5; i++){
     var $tr = $('<tr>');
+    var $secondtr = $('<tr>');
     for (var j = 1; j<=4; j++){
       var $td = $('<td>');
-      var cardClass = 'pair' + cardNum;
-      $td.addClass('card').addClass(cardClass);
-      $tr.append($td);
-    }
-    $('#belowcardsholder').append($tr);
-  }
-  for ( i = 1; i <= 5; i++){
-    var $tr = $('<tr>');
-    for ( j = 1; j<=4; j++){
-      var $td = $('<td>');
+      var $secondtd = $('<td>');
       var cardNum = shuffledCards.pop();
       var cardClass = 'pair' + cardNum;
       $td.attr('data-n', cardNum);
+      $secondtd.attr('data-n', cardNum);
       $td.addClass('card').addClass(cardClass);
+      $secondtd.addClass('card').addClass(cardClass);
       $tr.append($td);
+      $secondtr.append($secondtd);
     }
     $('#cardsholder').append($tr);
+    $('#belowcardsholder').append($secondtr);
+    console.log(shuffledCards);
   }
 }
+
 
 function randomizeArray(){
   var shuffledCards = [];

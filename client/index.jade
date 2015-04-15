@@ -1,8 +1,8 @@
 doctype html
 html
   head
-    meta(charset='utf-8')      
-    title Apollo
+    meta(charset='utf-8')
+    title Alice in Wonderland
     link(rel='stylesheet', href='/vendor/font-awesome/css/font-awesome.min.css')
     link(rel='stylesheet', href=isProd ? '/index.min.css' : '/index.css')
     link(rel='shortcut icon', href='/favicon.ico')
@@ -12,11 +12,13 @@ html
       h1 Alice in Wonderland
       h2 Memory Game
       #controls
+      
         button#start Start
-        p#timer 60
+        #timerHolder
+          p#timer 60
       #cardsholder
       #belowcardsholder
-      p#toolate You're late!
+      
     script(src='/vendor/jquery/dist/jquery.min.js')
     script(src='/vendor/lodash/lodash.min.js')
     script(src=isProd ? '/index.min.js' : '/index.js')

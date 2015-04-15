@@ -1,40 +1,121 @@
+@import url(http://fonts.googleapis.com/css?family=Special+Elite);
+
 body{
   background-image: url('/assets/lookingglass.jpg');
-  background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
+  font-family: 'Special Elite', cursive;
+}
+h1 {
+  font-size: 4em;
+}
+h2 {
+  font-size: 2em;
+  color: #c14b09;
+  text-align: right;
+  position:absolute;
+  top: 80px;
+  left: 850px;
 }
 #container{
-  background-color: rgba(157, 147, 147, 0.64);
+  margin-top: 50px;
+  //background-color: rgba(160, 130, 82, 0.2);
+  height:100vh;
+  width: 1000px;
+  margin:0 auto;
 }
 table, tr, td{
-  border: 2px black solid;
+  height: 150px;
+  width: 100px;
+
 }
-#cardsholder .card{
-  background-color: black;
-  width: 50px;
-  height: 70px;
-  margin: 5px;
+td{
+  margin: 5px 40px;
 }
-#belowcardsholder .card{
-  background-color: pink;
+#cardsholder td.card{
   margin: 5px;
+  background-image: url("/assets/cover.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: normal;
+  //height:150px;
+  //width:100px;
+  //background-size: 100% 100%;
+}
+#belowcardsholder{
+  margin: 5px;
+  .pair0{
+    background-image: url('/assets/1.jpg');
+    //width:100px;
+    //height:150px;
+    }
+  .pair1{ background-image: url('/assets/10.jpg');}
+  .pair2{ background-image: url('/assets/2.jpg');}
+  .pair3{ background-image: url('/assets/3.jpg');}
+  .pair4{ background-image: url('/assets/4.jpg');}
+  .pair5{ background-image: url('/assets/5.jpg');}
+  .pair6{ background-image: url('/assets/6.jpg');}
+  .pair7{ background-image: url('/assets/7.jpg');}
+  .pair8{ background-image: url('/assets/8.jpg');}
+  .pair9{ background-image: url('/assets/9.jpg');}
+
+  //width:100px;
+  //height:150px;
 }
 .card{
-  width: 150px;
-  height: 200px;
+  //height:150px;
+  //width:100px;
+  background-size: 100% 100%;
 }
 #cardsholder{
+  margin: 0 auto;
   position: absolute;
   z-index: 10;
 }
 #belowcardsholder{
+  margin:0 auto;
   position: absolute;
   z-index: 1;
-  background-color: yellow;
+  //background-color: yellow;
 }
+
 #toolate{
   font-size: 60px;
   text-align: center;
   vertical-align: middle;
   color: purple;
+}
+#controls{
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  left: 800px;
+  background-image: url('/assets/n.png');
+  background-size: 100% 100%;
+}
+#timerHolder{
+  font-size: 12em;
+  -webkit-transform: skewX(30deg); /* Chrome, Safari, Opera */
+  transform: skewX(30deg);
+  -webkit-transform: rotate(-30deg); /* Chrome, Safari, Opera */
+  transform: rotate(-30deg);
+  position: absolute;
+  left:95px;
+  top:-80px;
+  pointer-events: none;
+  text-align: center;
+  color: #c14b09;
+  text-shadow: 2px 2px #666666;
+}
+button{
+  font-family: 'Special Elite', cursive;
+  font-size:2em;
+  padding:3px;
+  border: 2px solid;
+}
+#start{
+  position: absolute;
+  left: 270px;
+  top:500px;
+  background-color: rgba(195, 63, 8, 0.67);
 }
