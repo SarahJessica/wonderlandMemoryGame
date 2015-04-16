@@ -12,28 +12,44 @@ function init(){
   cash = root.child('cash');
   portfolios = root.child('portfolios');
   portfolios.on('child_added',addPortfolio);
+  portfolios.on('child_changed',portfolioChanged);
   $('#createPortfolio').click(createPortfolio);
   $('#update').click(updateInfo);
   $('#buyStock').on('click','#buy',setSymbol);
   //showPortfolios();
+  $('#buy').click(getQuote);
+}
+
+function portfolioChanged(snapshot){
+  var key = snapshot.key();
+  var portfolio = snapshot.val();
+  console.log(portfolios.child(key).val());
 }
 
 function addPortfolio(snapshot){
-  var portfolio = snapshot.val();
-  var key = snapshot.key();
+  //var portfolio = snapshot.val();
+  var key = snapshot.val();
+  console.log(key.name);
+  var portName = key.name;
+  var $option = '<option class="portfolio">'+portName+'</option>';
+  $('.portfolioList').append($option);
+  var $div = $('<div class="'+portName+'">');
 
+  $div.addClass('portfolio').append('<h2>'+ portName );
+  $('#portfolioViewer').append($div);
 }
 
 function createPortfolio(){
-  debugger;
   var portName = $('#portName').val();
   var portfolio = { name: portName };
-  portfolios.push(portfolio);
+  portfolios.push(portfolio,function(){
+    console.log('create', portfolio.name);
+  });
 }
 
 function updatePortfolios(){
   var portfolio = $('#portName').val();
-  root.set({portfolios: portfolio});
+  root.create({portfolios: portfolio});
   //showPortfolios();
 }
 
@@ -47,20 +63,25 @@ function setSymbol(){
 function updateInfo(){
   var name = $('#name').val();
   var cash = $('#cash').val();
-  root.set({user: name, cash: cash});
+  root.update({user: name, cash: cash});
   $('#welcome').text('Welcome, '+name);
   $('#showBalance').text('$ '+cash);
 }
 
-/*
- in init
-$('#get-quote').click(getQuote);
 function getQuote(){
   var symbol = $('#symbol').val().toUpperCase();
   var url = 'http://dev.markitondemand.com/Api/v2/Quote/jsonp?symbol=' + symbol + '&callback=?';
   $.getJSON(url, function(response){
-    $('#quote').text(JSON.stringify(response));
     console.log(response);
+    var price = response.LastPrice;
+    var amnt = $('#buyAmnt').val();
+    var $sym = $('<h3>'+ symbol + ': ' + amnt + '</h3>');
+    var $position = $('<h3 class="position"> Position: $' +(price * amnt).toFixed(2) + '</h3>');
+    var $selected = '.'+$('.portfolioList').val();
+    console.log($($selected));
+    $($selected).append($sym);
+    $($selected).append($position);
   });
 }
-*/
+
+//$('#quote').text(JSON.stringify(response));

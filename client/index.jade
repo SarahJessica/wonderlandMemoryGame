@@ -15,15 +15,15 @@ html
       h1#welcome Welcome,
       h2#showBalance $
     #portfolioManage
-      input#portName(type="text" value="Ex:Dog Fashion")
+      input#portName(type="text")
       button#createPortfolio Create Portfolio
     #buyStock
-      input#symbol
+      input#symbol(value="aapl")
       input#buyAmnt(type="number")
       button#buy Buy
       p Wacky List
       select.portfolioList
-      
+    #portfolioViewer
     
     script(src='/vendor/jquery/dist/jquery.min.js')
     script(src='/vendor/moment/min/moment.min.js')
