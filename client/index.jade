@@ -2,6 +2,7 @@ doctype html
 html
   head
     meta(charset='utf-8')
+<<<<<<< HEAD
     title Alice in Wonderland
     link(rel='stylesheet', href='/vendor/font-awesome/css/font-awesome.min.css')
     link(rel='stylesheet', href=isProd ? '/index.min.css' : '/index.css')
@@ -20,5 +21,33 @@ html
       #belowcardsholder
       
     script(src='/vendor/jquery/dist/jquery.min.js')
+=======
+    title Stocks
+    link(rel='stylesheet', href='/vendor/font-awesome/css/font-awesome.min.css')
+    link(rel='stylesheet', href=isProd ? '/index.min.css' : '/index.css')
+    link(rel='shortcut icon', href='/favicon.ico')
+  body
+    #input
+      input#name(type="text")
+      input#cash(type="text")
+      button#update Update Account
+    #userInfo
+      h1#welcome Welcome,
+      h2#showBalance $
+    #portfolioManage
+      input#portName(type="text")
+      button#createPortfolio Create Portfolio
+    #buyStock
+      input#symbol(value="aapl")
+      input#buyAmnt(type="number")
+      button#buy Buy
+      p Wacky List
+      select.portfolioList
+    #portfolioViewer
+    
+    script(src='/vendor/jquery/dist/jquery.min.js')
+    script(src='/vendor/moment/min/moment.min.js')
+    script(src='/vendor/firebase/firebase.js')
+>>>>>>> 93c466a83d342e00bd63860c9a3fc8dff07812dd
     script(src='/vendor/lodash/lodash.min.js')
     script(src=isProd ? '/index.min.js' : '/index.js')
