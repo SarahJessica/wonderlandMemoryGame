@@ -12,6 +12,10 @@ function init(){
 
 function startGame(){
   startTimer();
+  $('#cardsholder tr').remove();
+  $('#belowcardsholder tr').remove();
+  $('#belowcardsholder').removeClass('animated bounceOut');
+  $('#cardsholder').removeClass('animated bounceOut');
   setupGame();
   $('#winner').hide();
 }
@@ -27,6 +31,7 @@ function reduceTimer(){
     clearInterval(stopTimer);
     $('#start').show();
     $('#winner').show();
+    $('#controls').removeClass('animated shake infinite');
   }
   if($('#timer').text() <= 0){
     $('#controls').removeClass('animated shake infinite');
