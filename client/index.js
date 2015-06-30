@@ -59,7 +59,6 @@ function setupGame(){
     }
     $('#cardsholder').append($tr);
     $('#belowcardsholder').append($secondtr);
-    console.log(shuffledCards);
   }
 }
 
@@ -86,11 +85,10 @@ function flipCard(){
       $('.selected').removeClass('selected');
       pairsToGameOver--;
     }else{
-      setTimeout(dontMatch, 750);
+      setTimeout(dontMatch, 500);
     }
   }else{ // first card selected
-    $(this).addClass('selected');
-    $(this).addClass('animated flipOutY');
+    $(this).addClass('selected animated flipOutY');
     $compare1 = $(this);
   }
 }

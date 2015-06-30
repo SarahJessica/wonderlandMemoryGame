@@ -1,8 +1,11 @@
 {
-  "name": "front-end-prototype",
+  "name": "wonderlandMemoryGame",
   "version": "0.0.1",
-  "homepage": "https://github.com/chyld/front-end-prototype",
-  "author": "Chyld Medford <chyld.medford@gmail.com>",
+  "homepage": "https://github.com/kolohelios/wonderlandMemoryGame",
+  "authors": [
+    "Jon Edwards <jkedwards@me.com>",
+    "Jess Leivers <sarahjessicaleivers@gmail.com>"
+  ],
   "license": "BSD",
   "devDependencies": {
     "bower": "^1.4.1",
