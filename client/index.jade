@@ -3,22 +3,19 @@ html
   head
     meta(charset='utf-8')
     title Alice in Wonderland
-    link(rel='stylesheet', href='/vendor/font-awesome/css/font-awesome.min.css')
     link(rel='stylesheet', href=isProd ? '/index.min.css' : '/index.css')
     link(rel='shortcut icon', href='/favicon.ico')
-    link(rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.6/animate.min.css")
+    link(rel="stylesheet" href="/vendor/animate.css/animate.min.css")
   body
     #container
       h1 Alice in Wonderland
       h2 Memory Game
       #controls
-      
         button#start Start
         #timerHolder
           p#timer 60
+      p#winner You won!
       #cardsholder
       #belowcardsholder
-      
     script(src='/vendor/jquery/dist/jquery.min.js')
-    script(src='/vendor/lodash/lodash.min.js')
     script(src=isProd ? '/index.min.js' : '/index.js')
