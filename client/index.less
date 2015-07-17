@@ -20,36 +20,35 @@ h2 {
 }
 #container{
   margin-top: 50px;
-  //background-color: rgba(160, 130, 82, 0.2);
-  height:100vh;
+  height: 100vh;
   width: 1000px;
   margin:0 auto;
 }
 table, tr, td{
   height: 150px;
   width: 100px;
-
 }
 td{
   margin: 5px 40px;
 }
-#cardsholder td.card{
-  margin: 5px;
-  background-image: url("/assets/cover.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: normal;
-  //height:150px;
-  //width:100px;
-  //background-size: 100% 100%;
+#cardsholder{
+  margin: 0 auto;
+  position: absolute;
+  z-index: 10;
+  td.card{
+    margin: 5px;
+    background-image: url("/assets/cover.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: normal;
+  }
 }
 #belowcardsholder{
   margin: 5px;
-  .pair0{
-    background-image: url('/assets/1.jpg');
-    //width:100px;
-    //height:150px;
-    }
+  margin: 0 auto;
+  position: absolute;
+  z-index: 1;
+  .pair0{ background-image: url('/assets/1.jpg');}
   .pair1{ background-image: url('/assets/10.jpg');}
   .pair2{ background-image: url('/assets/2.jpg');}
   .pair3{ background-image: url('/assets/3.jpg');}
@@ -59,27 +58,10 @@ td{
   .pair7{ background-image: url('/assets/7.jpg');}
   .pair8{ background-image: url('/assets/8.jpg');}
   .pair9{ background-image: url('/assets/9.jpg');}
-
-  //width:100px;
-  //height:150px;
 }
 .card{
-  //height:150px;
-  //width:100px;
   background-size: 100% 100%;
 }
-#cardsholder{
-  margin: 0 auto;
-  position: absolute;
-  z-index: 10;
-}
-#belowcardsholder{
-  margin:0 auto;
-  position: absolute;
-  z-index: 1;
-  //background-color: yellow;
-}
-
 #toolate{
   font-size: 60px;
   text-align: center;
@@ -91,7 +73,7 @@ td{
   width: 400px;
   height: 400px;
   left: 800px;
-  background-image: url('/assets/n.png');
+  background-image: url('/assets/timepiece.png');
   background-size: 100% 100%;
 }
 #timerHolder{
@@ -101,8 +83,8 @@ td{
   -webkit-transform: rotate(-30deg); /* Chrome, Safari, Opera */
   transform: rotate(-30deg);
   position: absolute;
-  left:95px;
-  top:-80px;
+  left: 95px;
+  top: -80px;
   pointer-events: none;
   text-align: center;
   color: #c14b09;
@@ -110,14 +92,14 @@ td{
 }
 button{
   font-family: 'Special Elite', cursive;
-  font-size:2em;
-  padding:3px;
+  font-size: 2em;
+  padding: 3px;
   border: 2px solid;
 }
 #start{
   position: absolute;
   left: 270px;
-  top:500px;
+  top: 500px;
   background-color: rgba(195, 63, 8, 0.67);
 =======
 .portfolio{
@@ -127,4 +109,14 @@ button{
   background: yellow;
   margin: 5px;
 >>>>>>> 93c466a83d342e00bd63860c9a3fc8dff07812dd
+}
+#winner {
+  display: none;
+  position: absolute;
+  right: 125px;
+  top: 400px;
+  color: #5edd78;
+  text-shadow: 2px 2px #666666;
+  font-size: 8em;
+  font-family: 'Special Elite', cursive;
 }

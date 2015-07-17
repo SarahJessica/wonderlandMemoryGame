@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-'use strict'
+'use strict';
 
 $(document).ready(init);
 
@@ -13,7 +12,12 @@ function init(){
 
 function startGame(){
   startTimer();
+  $('#cardsholder tr').remove();
+  $('#belowcardsholder tr').remove();
+  $('#belowcardsholder').removeClass('animated bounceOut');
+  $('#cardsholder').removeClass('animated bounceOut');
   setupGame();
+  $('#winner').hide();
 }
 
 function startTimer(){
@@ -23,14 +27,19 @@ function startTimer(){
 
 function reduceTimer(){
   $('#timer').text(parseInt($('#timer').text()) - 1);
+  if(pairsToGameOver === 0){
+    clearInterval(stopTimer);
+    $('#start').show();
+    $('#winner').show();
+    $('#controls').removeClass('animated shake infinite');
+  }
   if($('#timer').text() <= 0){
     $('#controls').removeClass('animated shake infinite');
     $('#belowcardsholder').addClass('animated bounceOut');
     $('#cardsholder').addClass('animated bounceOut');
     clearInterval(stopTimer);
     $('#start').show();
-  }
-  else if($('#timer').text() < 5){
+  }else if($('#timer').text() < 5){
     $('#controls').addClass('animated shake infinite');
   }
 }
@@ -41,7 +50,7 @@ function setupGame(){
   for (var i = 1; i <= 5; i++){
     var $tr = $('<tr>');
     var $secondtr = $('<tr>');
-    for (var j = 1; j<=4; j++){
+    for (var j = 1; j <= 4; j++){
       var $td = $('<td>');
       var $secondtd = $('<td>');
       var cardNum = shuffledCards.pop();
@@ -55,7 +64,6 @@ function setupGame(){
     }
     $('#cardsholder').append($tr);
     $('#belowcardsholder').append($secondtr);
-    console.log(shuffledCards);
   }
 }
 
@@ -63,11 +71,10 @@ function setupGame(){
 function randomizeArray(){
   var shuffledCards = [];
   for(var i = 0; i < 10; i++){
-    var pairid = i;
-    shuffledCards.push(pairid);
-    shuffledCards.push(pairid);
+    shuffledCards.push(i);
+    shuffledCards.push(i);
   }
-    for (var j = 0; j <=35; j++){
+  for (var j = 0; j <= 35; j++){
     var randomNum = Math.floor(Math.random() * 19);
     var randomCard = shuffledCards.splice(randomNum, 1);
     shuffledCards.push(randomCard[0]);
@@ -76,29 +83,22 @@ function randomizeArray(){
 }
 
 function flipCard(){
-  console.log('selected', $('.selected').length);
-  if($('.selected').length === 1){
-    $(this).addClass('selected');
-      $('.selected').addClass('animated flipOutY');
-      var $compare2 = $(this);
-      console.log($compare1.data('n'), $compare2.data('n'));
-      if($compare1.data('n') === $compare2.data('n')){
-        $('.selected').removeClass('selected');
-        pairsToGameOver--;
-        console.log('pairs to game over:', pairsToGameOver);
-      }
-      else{
-        setTimeout(dontMatch, 750);
-      }
-  }
-  else{
-    $(this).addClass('selected');
+  if($('.selected').length === 1){ // second card selected
+    $(this).addClass('selected animated flipOutY');
+    var $compare2 = $(this);
+    if($compare1.data('n') === $compare2.data('n')){
+      $('.selected').removeClass('selected');
+      pairsToGameOver--;
+    }else{
+      setTimeout(dontMatch, 500);
+    }
+  }else{ // first card selected
+    $(this).addClass('selected animated flipOutY');
     $compare1 = $(this);
   }
 }
 
 function dontMatch(){
-  $('.selected').removeClass('selected flipOutY').addClass('flipInY');
   $('.selected').removeClass('selected flipOutY').addClass('flipInY');
 }
 =======

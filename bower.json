@@ -1,22 +1,19 @@
 {
-  "name": "front-end-prototype",
+  "name": "wonderlandMemoryGame",
   "version": "0.0.1",
-  "homepage": "https://github.com/chyld/front-end-prototype",
+  "homepage": "https://github.com/kolohelios/wonderlandMemoryGame",
   "authors": [
-    "Chyld Medford <chyld.medford@gmail.com>"
+    "Jon Edwards <jkedwards@me.com>",
+    "Jess Leivers <sarahjessicaleivers@gmail.com>"
   ],
   "license": "BSD",
   "dependencies": {
-<<<<<<< HEAD
-    "jquery": "~2.1.3",
-    "lodash": "~3.6.0",
-    "font-awesome": "~4.3.0"
-=======
     "lodash": "~3.6.0",
     "font-awesome": "~4.3.0",
     "jquery": "~2.1.3",
     "moment": "~2.10.2",
     "firebase": "~2.2.4"
->>>>>>> 93c466a83d342e00bd63860c9a3fc8dff07812dd
+    "animate.css": "~3.3.0"
+
   }
 }
